@@ -4,9 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "test:prod": "ng test --no-progress --no-watch",
+    "build:prod": "ng build && cp ./dist/pale-blue-games/browser/index.html ./dist/pale-blue-games/browser/404.html"
   },
   "prettier": {
     "printWidth": 100,
