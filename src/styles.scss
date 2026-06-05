@@ -18,6 +18,10 @@
         punch red - #e71d36
 */
 
+@use '@austinkurtti/ngx-burst' as ngxb;
+
+@include ngxb.theme();
+
 body {
     margin: 0;
     padding: 0;
