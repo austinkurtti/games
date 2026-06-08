@@ -1,0 +1,16 @@
+@use 'sass:color';
+
+$gradient-end: color.adjust(#1a183f, $lightness: 60%);
+
+:host {
+    background: linear-gradient(var(--ngxb-color-background), var(--ngxb-color-background), #{$gradient-end});
+    
+    img {
+        height: 40vh;
+        max-width: 100vw;
+    }
+
+    #fof {
+        color: var(--ngxb-color-negative);
+    }
+}

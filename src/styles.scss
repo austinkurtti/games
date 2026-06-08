@@ -1,4 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'sass:color';
 
 /* Ideas for base color palette
     Sampled colors from pale blue dot image:
@@ -20,9 +20,21 @@
 
 @use '@austinkurtti/ngx-burst' as ngxb;
 
-@include ngxb.theme();
+@include ngxb.theme((
+    'color-primary': #1a183f,
+    'color-primary-hover': color.adjust(#1a183f, $lightness: 10%),
+    'color-primary-active': color.adjust(#1a183f, $lightness: 20%),
+    // 'color-on-primary': fns.adjust-to-contrast(vars.$color-blue, vars.$color-blue)
+    'color-on-primary': #fff
+));
+@include ngxb.reset();
+
+@include ngxb.button-theme();
 
 body {
-    margin: 0;
-    padding: 0;
+    .full-page {
+        display: block;
+        height: 100vh;
+        width: 100vw;
+    }
 }
