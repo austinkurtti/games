@@ -18,6 +18,8 @@
         punch red - #e71d36
 */
 
+@use 'fonts';
+
 @use '@austinkurtti/ngx-burst' as ngxb;
 
 @include ngxb.theme((
@@ -32,6 +34,8 @@
 @include ngxb.button-theme();
 
 body {
+    font-family: JetBrains Mono, monospace, system-ui, sans-serif;
+
     .full-page {
         display: block;
         height: 100vh;
