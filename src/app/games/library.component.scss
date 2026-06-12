@@ -47,6 +47,14 @@
     main {
         display: grid;
         gap: $gutter;
+        // For own knowledge:
+        // - repeat - iterates a track pattern across the grid container, creating as many tracks as will fit
+        //   - auto-fill - preserves empty tracks, leaving unfilled space at the end of the row
+        //   - auto-fit - collapses empty tracks, allowing columns to stretch and fill the entire row (can be used instead of auto-fill)
+        // - minmax - sets a flexible range for each column
+        //   - minimum (12vmax) - the column will never shrink smaller than 12vmax (12% of the smaller viewport dimension)
+        //   - maximum (1fr) - if there is extra space remaining in the row, the columns will stretch equally to split that space (1 fraction of the remaining space)
+        grid-template-columns: repeat(auto-fill, minmax(12vmax, 1fr));
         padding-top: v.$unit-8x;
         padding-right: $gutter;
         padding-bottom: $gutter;
@@ -83,43 +91,6 @@
                     width: 100%;
                 }
             }
-        }
-    }
-
-    // TODO - replace with mixins from ngxb
-    @media (min-width: 0px) {
-        main {
-            grid-template-columns: repeat(auto-fit, minmax(calc(v.$unit * 8), 1fr));
-        }
-    }
-
-    @media (min-width: v.$breakpoint-sm) {
-        main {
-            grid-template-columns: repeat(auto-fit, minmax(calc(v.$unit * 10), 1fr));
-        }
-    }
-
-    @media (min-width: v.$breakpoint-md) {
-        main {
-            grid-template-columns: repeat(auto-fit, minmax(calc(v.$unit * 12), 1fr));
-        }
-    }
-
-    @media (min-width: v.$breakpoint-lg) {
-        main {
-            grid-template-columns: repeat(auto-fit, minmax(calc(v.$unit * 14), 1fr));
-        }
-    }
-
-    @media (min-width: v.$breakpoint-xl) {
-        main {
-            grid-template-columns: repeat(auto-fit, minmax(calc(v.$unit * 16), 1fr));
-        }
-    }
-
-    @media (min-width: v.$breakpoint-xxl) {
-        main {
-            grid-template-columns: repeat(auto-fit, minmax(calc(v.$unit * 18), 1fr));
         }
     }
 }
