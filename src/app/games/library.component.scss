@@ -1,46 +1,125 @@
+@use 'variables' as v;
+
 :host {
-    background: linear-gradient(135deg, #1a183f, #756aab);
-    color: #fff;
+    background: linear-gradient(135deg, v.$color-space-indigo, v.$color-dusty-grape);
+    color: v.$color-white;
     display: block;
     min-height: 100vh;
 
+    $gutter: v.$unit-2x;
+
     header {
-        background: transparent;
+        background-color: transparent;
+        box-shadow: none;
+        transition:
+            background-color ease-in-out .2s,
+            box-shadow ease-in-out .2s;
 
-        img {
-            height: calc(var(--ngxb-unit) * 4);
+        &.scrolling {
+            background-color: v.$color-space-indigo;
+            box-shadow: 0 v.$unit-half v.$unit-half 0 rgba($color: v.$color-dusty-grape, $alpha: .75);
         }
 
-        span {
-            display: inline-block;
-            font-size: calc(var(--ngxb-unit) * 2);
-        }
+        .container {
+            padding: $gutter;
 
-        button {
-            --ngxb-button-color-subtle: transparent;
-            --ngxb-button-color-subtle-hover: #{rgba(#fff, $alpha: .1)};
-            --ngxb-button-color-subtle-active: #{rgba(#fff, $alpha: .2)};
-            --ngxb-button-color-on-subtle: #fff;
+            img {
+                height: v.$unit-4x;
+            }
 
-            border: none;
-            border-radius: calc(var(--ngxb-unit) / 2);
+            span {
+                display: inline-block;
+                font-size: v.$unit-2x;
+            }
+
+            button {
+                --ngxb-button-color-subtle: transparent;
+                --ngxb-button-color-subtle-hover: #{rgba(v.$color-white, $alpha: .1)};
+                --ngxb-button-color-subtle-active: #{rgba(v.$color-white, $alpha: .2)};
+                --ngxb-button-color-on-subtle: v.$color-white;
+
+                border: none;
+                border-radius: v.$unit-half;
+            }
         }
     }
 
     main {
         display: grid;
-        gap: var(--ngxb-unit);
-        grid-template-columns: repeat(4, 1fr);
-        padding-top: calc(var(--ngxb-unit) * 6);
-        padding-right: var(--ngxb-unit);
-        padding-bottom: var(--ngxb-unit);
-        padding-left: var(--ngxb-unit);
+        gap: $gutter;
+        padding-top: v.$unit-8x;
+        padding-right: $gutter;
+        padding-bottom: $gutter;
+        padding-left: $gutter;
 
         .game {
-            background: rgba(#fff, $alpha: .15);
-            border-radius: calc(var(--ngxb-unit) / 2);
-            height: 20vh;
-            padding: var(--ngxb-unit);
+            background-color: rgba(v.$color-white, $alpha: .2);
+            border-radius: v.$unit-half;
+            color: v.$color-white;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            text-decoration: none;
+
+            &:hover {
+                outline-color: var(--ngxb-color-focus-outline);
+                outline-offset: v.$unit-eighth;
+                outline-style: solid;
+                outline-width: v.$unit-eighth;
+            }
+
+            h3 {
+                margin-bottom: 0;
+                padding: v.$unit;
+            }
+
+            .game-content {
+                aspect-ratio: 1/1;
+                width: 100%;
+
+                img {
+                    height: 100%;
+                    object-fit: cover;
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    // TODO - replace with mixins from ngxb
+    @media (min-width: 0px) {
+        main {
+            grid-template-columns: repeat(auto-fit, minmax(calc(v.$unit * 8), 1fr));
+        }
+    }
+
+    @media (min-width: v.$breakpoint-sm) {
+        main {
+            grid-template-columns: repeat(auto-fit, minmax(calc(v.$unit * 10), 1fr));
+        }
+    }
+
+    @media (min-width: v.$breakpoint-md) {
+        main {
+            grid-template-columns: repeat(auto-fit, minmax(calc(v.$unit * 12), 1fr));
+        }
+    }
+
+    @media (min-width: v.$breakpoint-lg) {
+        main {
+            grid-template-columns: repeat(auto-fit, minmax(calc(v.$unit * 14), 1fr));
+        }
+    }
+
+    @media (min-width: v.$breakpoint-xl) {
+        main {
+            grid-template-columns: repeat(auto-fit, minmax(calc(v.$unit * 16), 1fr));
+        }
+    }
+
+    @media (min-width: v.$breakpoint-xxl) {
+        main {
+            grid-template-columns: repeat(auto-fit, minmax(calc(v.$unit * 18), 1fr));
         }
     }
 }

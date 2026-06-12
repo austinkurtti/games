@@ -1,33 +1,15 @@
 @use 'sass:color';
 
-/* Ideas for base color palette
-    Sampled colors from pale blue dot image:
-        dot - #8e929d
-        orange streak - #684f48
-        green streak - #3f503d
-        black space - #383940
-    
-    Logo-based palette:
-        space indigo - #1a183f
-        dusty grape - #756aab
-        baby blue ice - #88dbf5
-        moss green - #5bc063
-        petal frost - #ffd3e8
-
-        honey bronze - #f6ae2d
-        punch red - #e71d36
-*/
-
 @use 'fonts';
+@use 'variables' as v;
 
 @use '@austinkurtti/ngx-burst' as ngxb;
 
 @include ngxb.theme((
-    'color-primary': #1a183f,
-    'color-primary-hover': color.adjust(#1a183f, $lightness: 10%),
-    'color-primary-active': color.adjust(#1a183f, $lightness: 20%),
-    // 'color-on-primary': fns.adjust-to-contrast(vars.$color-blue, vars.$color-blue)
-    'color-on-primary': #fff
+    'color-primary': v.$color-space-indigo,
+    'color-primary-hover': color.adjust(v.$color-space-indigo, $lightness: 10%),
+    'color-primary-active': color.adjust(v.$color-space-indigo, $lightness: 20%),
+    'color-on-primary': v.$color-white
 ));
 @include ngxb.reset();
 

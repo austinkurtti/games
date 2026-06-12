@@ -1,0 +1,55 @@
+@use '@austinkurtti/ngx-burst' as ngxb;
+
+// --------------------------------------------------------
+// MEASUREMENTS
+// --------------------------------------------------------
+$unit-half                              : calc(var(--ngxb-unit) / 2);
+$unit-quarter                           : calc(var(--ngxb-unit) / 4);
+$unit-eighth                            : calc(var(--ngxb-unit) / 8);
+$unit                                   : var(--ngxb-unit, 1rem);
+$unit-2x                                : calc(var(--ngxb-unit) * 2);
+$unit-4x                                : calc(var(--ngxb-unit) * 4);
+$unit-8x                                : calc(var(--ngxb-unit) * 8);
+
+$breakpoint-sm                          : ngxb.$breakpoint-sm;
+$breakpoint-md                          : ngxb.$breakpoint-md;
+$breakpoint-lg                          : ngxb.$breakpoint-lg;
+$breakpoint-xl                          : ngxb.$breakpoint-xl;
+$breakpoint-xxl                         : ngxb.$breakpoint-xxl;
+
+
+// --------------------------------------------------------
+// COLORS
+// --------------------------------------------------------
+/* Ideas for base color palette
+    Sampled colors from pale blue dot image:
+        dot - #8e929d
+        orange streak - #684f48
+        green streak - #3f503d
+        black space - #383940
+*/
+// Logo colors
+$color-space-indigo                     : #1a183f;
+$color-dusty-grape                      : #756aab;
+$color-baby-blue-ice                    : #88dbf5;
+$color-moss-green                       : #5bc063;
+$color-petal-frost                      : #ffd3e8;
+
+// Logo color extensions
+$color-honey-bronze                     : #f6ae2d;
+$color-punch-red                        : #e71d36;
+
+// Basic colors
+$color-white                            : ngxb.$color-white;
+$color-ivory                            : ngxb.$color-ivory;
+$color-gray-100                         : ngxb.$color-gray-100;
+$color-gray-200                         : ngxb.$color-gray-200;
+$color-gray-300                         : ngxb.$color-gray-300;
+$color-gray-400                         : ngxb.$color-gray-400;
+$color-gray-500                         : ngxb.$color-gray-500;
+$color-gray                             : ngxb.$color-gray;
+$color-gray-600                         : ngxb.$color-gray-600;
+$color-gray-700                         : ngxb.$color-gray-700;
+$color-gray-800                         : ngxb.$color-gray-800;
+$color-slate                            : ngxb.$color-slate;
+$color-black                            : ngxb.$color-black;

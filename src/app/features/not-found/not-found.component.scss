@@ -1,6 +1,8 @@
 @use 'sass:color';
 
-$gradient-end: color.adjust(#1a183f, $lightness: 60%);
+@use 'variables' as v;
+
+$gradient-end: color.adjust(v.$color-space-indigo, $lightness: 60%);
 
 :host {
     background: linear-gradient(var(--ngxb-color-background), var(--ngxb-color-background), #{$gradient-end});

@@ -1,7 +1,7 @@
 <header class="position-fixed w-100">
-    <div class="container g-0 d-flex justify-content-between p-3">
+    <div class="container g-0 d-flex justify-content-between">
         <div class="d-flex align-items-center">
-            <img src="logo-no-text.svg"/><span class="ms-3">Game Library</span>
+            <img src="logo-no-text.svg"/><h1 class="ms-3 mb-0">Game Library</h1>
         </div>
         <div>
             <button ngxbButton class="h-100 px-2" [type]="themeButtonType">
@@ -12,6 +12,12 @@
 </header>
 
 <main class="container g-0">
-    <div class="game">Sudoku</div>
-    <div class="game">Warships</div>
+    @for (game of games; track game.route) {
+        <a class="game" [routerLink]="'/' + game.route">
+            <h3>{{ game.title }}</h3>
+            <div class="game-content">
+                <img [alt]="game.title" [src]="'library-images/' + game.img">
+            </div>
+        </a>
+    }
 </main>
